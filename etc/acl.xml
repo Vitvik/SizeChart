@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Vitvik.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::content">
+                    <resource id="Vitvik_SizeChart::sizechart"
+                      title="Size chart extension" sortOrder="20">
+                        <resource id="Vitvik_SizeChart::sizechart_edit" title="Size chart" sortOrder="1" />
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

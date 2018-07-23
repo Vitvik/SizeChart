@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Vitvik.
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+             id="Vitvik_SizeChart::sizechart"
+             title="Size chart extension"
+             module="Vitvik_SizeChart"
+             parent="Magento_Backend::content"
+             sortOrder="20"
+             resource="Vitvik_SizeChart::sizechart"/>
+        <add
+            id="Vitvik_SizeChart::sizechart_edit"
+            title="Size chart"
+            module="Vitvik_SizeChart"
+            parent="Vitvik_SizeChart::sizechart"
+            sortOrder="1"
+            action="sizechart/index"
+            resource="Vitvik_SizeChart::sizechart_edit"/>
+
+    </menu>
+</config>

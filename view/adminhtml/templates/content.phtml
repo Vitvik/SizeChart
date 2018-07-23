@@ -1,0 +1,78 @@
+<h1>Size chart page</h1>
+<?php
+
+//$url = $block->getFormAction()->getUrl();
+//var_dump($block->getUrl("/sizechart/index/upload"));
+var_dump($block->getFormAction());
+$categories = $block->getCategoryCollection();
+$blockList = $block->getBlocCollection();
+?>
+
+<form action="<?php $block->getFormAction()?>" id="sizechart" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="form_key" value="<?php echo $block->getFormKey() ?>" />
+  <label for="sizechar">Select block with size chart</label>
+</br>
+    <select  class="div_sizechart" name="sizechart" form="sizechart" id="sizechar">
+        <option value="">Select block</option>
+        <?php foreach ($blockList as $block) : ?>
+        <option value="<?php echo $block->getId()?>"><?php echo $block->getTitle()?></option>
+        <?php endforeach ;?>
+    </select>
+  </br>
+  <label for="category">Select category</label>
+</br>
+
+  <select class="div_category" name="category" form="sizechart" id="category">
+      <option value="">Select category</option>
+      <?php foreach ($categories as $category) : ?>
+      <option value="<?php echo $category->getId()?>"><?php echo $category->getName()." "."->"." ".$category->getParentCategory()->getName()?></option>
+      <?php endforeach ;?>
+  </select>
+    </br>
+  <!--
+    <label for="subcategory">Select subcategory</label>
+  </br>
+    <select class="div_subcategory" name="subcategory" form="sizechart" id="subcategory">
+        <option value="">Select subcategory</option>
+        <option value="0">All</option>
+
+    </select>
+      </br>
+  -->
+    <input type="submit" value="OK" name="submit">
+</form>
+
+<?php
+/*
+//var_dump($blockList->getData());
+$blockList = $block->getBlocCollection();
+foreach ($blockList as $block) {
+  echo $block->getId() . '<br />';
+  echo $block->getTitle() . '<br />';
+}
+/*
+// get the list of all categories
+$categories = $block->getCategoryCollection();
+//var_dump($categories->getParentCategories());
+foreach ($categories as $category) {
+    echo $category->getId() . '<br />';
+    echo $category->getName() . '<br />';
+
+}
+/*
+// get categories sorted by category name
+$categories = $block->getCategoryCollection(true, false, 'name', false);
+foreach ($categories as $category) {
+    echo $category->getId() . '<br />';
+    echo $category->getName() . '<br />';
+}
+*/
+/*
+// get current store’s categories
+$categories = $block->getStoreCategories();
+foreach ($categories as $category) {
+    echo $category->getId() . '<br />';
+    echo $category->getName() . '<br />';
+}
+*/
+?>
