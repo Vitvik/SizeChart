@@ -3,8 +3,23 @@
  * Copyright © Vitvik.
  */
 -->
-<h1>On this tab will be size cart</h1>
-
 <?php
- echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('Size_chart')->toHtml();
+  if (!empty($block->getCurrentCategory())) {
+      $currentCategoryId = $block->getCurrentCategory()->getId();
+  }
+  else {
+    $currentCategoryId = 'NULL';
+  }
+
+  $blockId = $block->getBlockId($currentCategoryId);
+
+  if (!empty($blockId)) {
+    echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId($blockId)->toHtml();
+  }
+  else {
+    ?>
+    <h1>This product doesn't have size chart</h1>
+  <?php
+  }
+
  ?>

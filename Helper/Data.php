@@ -34,7 +34,8 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 
     public function getCategoryArray()
     {
-      $collection = $this->_categoryCollectionFactory->create();
+      $collection = $this->_categoryCollectionFactory->create()
+                    ->addAttributeToSelect(array('id','name'));
 
        $categoryList = [];
        foreach($collection as $category){
